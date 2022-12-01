@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GroceryItem" representedClassName="GroceryItem" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="shoppinglistitem" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ShoppingListItem" inverseName="groceryitem" inverseEntity="ShoppingListItem"/>
+    </entity>
+    <entity name="ShoppingList" representedClassName="ShoppingList" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="shopname" optional="YES" attributeType="String"/>
+        <relationship name="shoppinglistitem" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ShoppingListItem" inverseName="shoppinglist" inverseEntity="ShoppingListItem"/>
+    </entity>
+    <entity name="ShoppingListItem" representedClassName="ShoppingListItem" syncable="YES">
+        <attribute name="checked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String"/>
+        <relationship name="groceryitem" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="GroceryItem" inverseName="shoppinglistitem" inverseEntity="GroceryItem"/>
+        <relationship name="shoppinglist" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="ShoppingList" inverseName="shoppinglistitem" inverseEntity="ShoppingList"/>
+    </entity>
+    <elements>
+        <element name="GroceryItem" positionX="-45" positionY="0" width="128" height="103"/>
+        <element name="ShoppingList" positionX="-18" positionY="54" width="128" height="118"/>
+        <element name="ShoppingListItem" positionX="9" positionY="90" width="128" height="103"/>
+    </elements>
+</model>
